@@ -59,8 +59,8 @@ def loadConfig():
 	""" Read in the Configuration file to get CDN specific settings
 
 	"""
-	global mydir
-	global myconfig
+    global myconfig
+    mydir = os.path.dirname(os.path.abspath(__file__))
 	Config = configparser.ConfigParser()
 	Config.read(mydir+"/.wol_config.ini")
 	sections = Config.sections()
@@ -84,7 +84,6 @@ def usage():
 
 
 if __name__ == '__main__':
-        mydir = os.path.dirname(os.path.abspath(__file__))
         conf = loadConfig()
         print conf
         try:
