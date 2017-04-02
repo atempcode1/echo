@@ -56,30 +56,30 @@ def wake_on_lan(host):
 
 
 def loadConfig():
-	""" Read in the Configuration file to get CDN specific settings
+    """ Read in the Configuration file to get CDN specific settings
 
-	"""
+    """
     global myconfig
     mydir = os.path.dirname(os.path.abspath(__file__))
-	Config = configparser.ConfigParser()
-	Config.read(mydir+"/.wol_config.ini")
-	sections = Config.sections()
-	dict1 = {}
-	for section in sections:
-		options = Config.options(section)
+    Config = configparser.ConfigParser()
+    Config.read(mydir+"/.wol_config.ini")
+    sections = Config.sections()
+    dict1 = {}
+    for section in sections:
+        options = Config.options(section)
 
-		sectkey = section
-		myconfig[sectkey] = {}
-
-
-		for option in options:
-			myconfig[sectkey][option] = Config.get(section,option)
+        sectkey = section
+        myconfig[sectkey] = {}
 
 
-	return myconfig # Useful for testing
+        for option in options:
+            myconfig[sectkey][option] = Config.get(section,option)
+
+
+    return myconfig # Useful for testing
 
 def usage():
-	print('Usage: wol.py [hostname]')
+    print('Usage: wol.py [hostname]')
 
 
 
