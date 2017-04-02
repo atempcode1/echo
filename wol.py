@@ -14,7 +14,7 @@ import socket
 import struct
 import os
 import sys
-import configparser
+import ConfigParser as configparser 
 
 
 myconfig = {}
@@ -86,13 +86,14 @@ def usage():
 if __name__ == '__main__':
         mydir = os.path.dirname(os.path.abspath(__file__))
         conf = loadConfig()
+        print conf
         try:
                 # Use macaddresses with any seperators.
                 if sys.argv[1] == 'list':
                         print('Configured Hosts:')
                         for i in conf:
                                 if i != 'General':
-                                        print('\t',i)
+                                        print(i)
                         print('\n')
                 else:
                         if not wake_on_lan(sys.argv[1]):
