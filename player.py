@@ -15,6 +15,7 @@
 import fauxmo
 import logging
 import time
+from wol import wake_on_lan, loadConfig
 
 from debounce_handler import debounce_handler
 
@@ -37,6 +38,9 @@ if __name__ == "__main__":
     u = fauxmo.upnp_broadcast_responder()
     u.init_socket()
     p.add(u)
+
+    mydir = os.path.dirname(os.path.abspath(__file__))
+    conf = loadConfig()
 
     # Register the device callback as a fauxmo handler
     d = device_handler()
